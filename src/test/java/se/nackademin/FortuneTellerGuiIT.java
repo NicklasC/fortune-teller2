@@ -10,6 +10,14 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import se.nackademin.gui.FortuneTellerGui;
 
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertEquals;
@@ -81,6 +89,16 @@ public class FortuneTellerGuiIT {
         assertEquals("Height is not correct","Invalid height! Must not contain anything but numbers.",errorMessage);
         window.optionPane().okButton().click();
         
+    }
+    
+    @Test
+    public void testOtherActionEvent(){
+        FailOnThreadViolationRepaintManager.uninstall();
+        
+        ActionEvent actionEvent = new ActionEvent(new JButton(),0,"");
+        fortuneTellerGui.actionPerformed(actionEvent);
+
+       
     }
 
     private FrameFixture window;
