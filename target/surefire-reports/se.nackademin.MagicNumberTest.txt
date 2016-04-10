@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: se.nackademin.MagicNumberTest
+-------------------------------------------------------------------------------
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.201 sec - in se.nackademin.MagicNumberTest

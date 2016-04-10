@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+fortune-teller,se.nackademin,Translator,0,150,0,0,0,7,0,4,0,4
+fortune-teller,se.nackademin,FortuneTeller,0,159,0,16,0,35,0,16,0,8
+fortune-teller,se.nackademin,MagicNumbers,0,158,0,12,0,46,0,17,0,11
+fortune-teller,se.nackademin,Launcher,22,0,0,0,5,0,2,0,2,0
+fortune-teller,se.nackademin.gui,FortuneTellerGui,0,279,1,13,0,60,1,10,0,4

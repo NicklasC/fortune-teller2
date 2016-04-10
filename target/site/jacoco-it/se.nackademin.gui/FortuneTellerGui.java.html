@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>FortuneTellerGui.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fortune-teller</a> &gt; <a href="index.source.html" class="el_package">se.nackademin.gui</a> &gt; <span class="el_source">FortuneTellerGui.java</span></div><h1>FortuneTellerGui.java</h1><pre class="source lang-java linenums">package se.nackademin.gui;
+
+import se.nackademin.FortuneTeller;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class FortuneTellerGui extends JFrame implements ActionListener {
+
+    private static final String NAME_LABEL = &quot;Name:&quot;;
+    private static final String INCOME_LABEL = &quot;Income (monthly):&quot;;
+    private static final String LOCATION_LABEL = &quot;Location:&quot;;
+    private static final String AGE_LABEL = &quot;Age:&quot;;
+    private static final String HEIGHT_LABEL = &quot;Height:&quot;;
+    private static final String FORTUNE_LABEL = &quot;Your fortune:&quot;;
+    private static final String BUTTON_TEXT = &quot;Calculate&quot;;
+    private final FortuneTeller fortuneTeller;
+<span class="fc" id="L20">    private final JTextField nameField = new JTextField();</span>
+<span class="fc" id="L21">    private final JTextField incomeField = new JTextField();</span>
+<span class="fc" id="L22">    private final JTextField locationField = new JTextField();</span>
+<span class="fc" id="L23">    private final JTextField ageField = new JTextField();</span>
+<span class="fc" id="L24">    private final JTextField heightField = new JTextField();</span>
+<span class="fc" id="L25">    private final JTextArea resultField = new JTextArea();</span>
+<span class="fc" id="L26">    private final JButton calculateButton = new JButton(BUTTON_TEXT);</span>
+<span class="fc" id="L27">    private final JPanel mainPanel = new JPanel();</span>
+
+<span class="fc" id="L29">    public FortuneTellerGui(FortuneTeller fortuneTeller) {</span>
+<span class="fc" id="L30">        this.fortuneTeller = fortuneTeller;</span>
+<span class="fc" id="L31">        initialize();</span>
+<span class="fc" id="L32">    }</span>
+
+    private void initialize() {
+<span class="fc" id="L35">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L36">        setSize(640, 480);</span>
+<span class="fc" id="L37">        mainPanel.setLayout(new GridLayout(13, 0));</span>
+<span class="fc" id="L38">        mainPanel.add(new JLabel(NAME_LABEL));</span>
+<span class="fc" id="L39">        mainPanel.add(nameField);</span>
+<span class="fc" id="L40">        nameField.setName(&quot;nameField&quot;);</span>
+<span class="fc" id="L41">        mainPanel.add(new JLabel(INCOME_LABEL));</span>
+<span class="fc" id="L42">        mainPanel.add(incomeField);</span>
+<span class="fc" id="L43">        incomeField.setName(&quot;incomeField&quot;);</span>
+<span class="fc" id="L44">        mainPanel.add(new JLabel(LOCATION_LABEL));</span>
+<span class="fc" id="L45">        mainPanel.add(locationField);</span>
+<span class="fc" id="L46">        locationField.setName(&quot;locationField&quot;);</span>
+<span class="fc" id="L47">        mainPanel.add(new JLabel(AGE_LABEL));</span>
+<span class="fc" id="L48">        mainPanel.add(ageField);</span>
+<span class="fc" id="L49">        ageField.setName(&quot;ageField&quot;);</span>
+<span class="fc" id="L50">        mainPanel.add(new JLabel(HEIGHT_LABEL));</span>
+<span class="fc" id="L51">        mainPanel.add(heightField);</span>
+<span class="fc" id="L52">        heightField.setName(&quot;heightField&quot;);</span>
+<span class="fc" id="L53">        mainPanel.add(calculateButton);</span>
+<span class="fc" id="L54">        calculateButton.setName(&quot;calculateButton&quot;);</span>
+<span class="fc" id="L55">        mainPanel.add(new JLabel(FORTUNE_LABEL));</span>
+<span class="fc" id="L56">        mainPanel.add(resultField);</span>
+<span class="fc" id="L57">        resultField.setName(&quot;resultField&quot;);</span>
+<span class="fc" id="L58">        getContentPane().add(mainPanel);</span>
+<span class="fc" id="L59">        calculateButton.addActionListener(this);</span>
+<span class="fc" id="L60">    }</span>
+
+    private void alert(String message) {
+<span class="fc" id="L63">        JOptionPane.showMessageDialog(this, message, &quot;Error!&quot;, JOptionPane.ERROR_MESSAGE);</span>
+<span class="fc" id="L64">    }</span>
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">        if (e.getSource() == calculateButton) {</span>
+<span class="fc" id="L69">            boolean valid = true;</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">            if (!fortuneTeller.setName(nameField.getText())) {</span>
+<span class="fc" id="L71">                valid = false;</span>
+<span class="fc" id="L72">                alert(&quot;Invalid name!&quot;);</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">            } else if (!fortuneTeller.setIncome(incomeField.getText())) {</span>
+<span class="fc" id="L74">                valid = false;</span>
+<span class="fc" id="L75">                alert(&quot;Invalid income! Must not contain anything but numbers.&quot;);</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">            } else if (!fortuneTeller.setLocation(locationField.getText())) {</span>
+<span class="fc" id="L77">                valid = false;</span>
+<span class="fc" id="L78">                alert(&quot;Invalid location!&quot;);</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">            } else if (!fortuneTeller.setAge(ageField.getText())) {</span>
+<span class="fc" id="L80">                valid = false;</span>
+<span class="fc" id="L81">                alert(&quot;Invalid age! Must not contain anything but numbers.&quot;);</span>
+<span class="fc bfc" id="L82" title="All 2 branches covered.">            } else if (!fortuneTeller.setHeight(heightField.getText())) {</span>
+<span class="fc" id="L83">                valid = false;</span>
+<span class="fc" id="L84">                alert(&quot;Invalid height! Must not contain anything but numbers.&quot;);</span>
+            }
+<span class="fc bfc" id="L86" title="All 2 branches covered.">            if (valid) {</span>
+<span class="fc" id="L87">                resultField.setText(fortuneTeller.calculate());</span>
+            }
+        }
+<span class="fc" id="L90">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

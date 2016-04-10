@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Translator.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fortune-teller</a> &gt; <a href="index.source.html" class="el_package">se.nackademin</a> &gt; <span class="el_source">Translator.java</span></div><h1>Translator.java</h1><pre class="source lang-java linenums">package se.nackademin;
+
+<span class="fc" id="L3">public class Translator {</span>
+
+<span class="fc" id="L5">    private final String[] adjectives = {&quot;stor&quot;, &quot;liten&quot;, &quot;stark&quot;, &quot;svag&quot;, &quot;mjuk&quot;, &quot;hård&quot;, &quot;snabb&quot;, &quot;vacker&quot;, &quot;ljus&quot;, &quot;mörk&quot;};</span>
+<span class="fc" id="L6">    private final String[] nouns = {&quot;en lönehöjning&quot;, &quot;en lönesänkning&quot;, &quot;en fotboja&quot;, &quot;en katt&quot;, &quot;en hund&quot;, &quot;ett hus&quot;, &quot;ett barn&quot;, &quot;ett elstängsel&quot;, &quot;en dator&quot;, &quot;ett golv&quot;};</span>
+<span class="fc" id="L7">    private final String[] verbs = {&quot;springa&quot;, &quot;ljuga&quot;, &quot;flyga&quot;, &quot;se&quot;, &quot;vara&quot;, &quot;äta&quot;, &quot;mäta&quot;, &quot;gå&quot;, &quot;röra&quot;, &quot;resa&quot;};</span>
+
+    public String getNoun(int idx) {
+<span class="fc" id="L10">        return nouns[idx];</span>
+    }
+
+    public String getVerb(int idx) {
+<span class="fc" id="L14">        return verbs[idx];</span>
+    }
+
+    public String getAdjective(int idx) {
+<span class="fc" id="L18">        return adjectives[idx];</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

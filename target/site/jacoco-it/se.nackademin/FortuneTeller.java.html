@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>FortuneTeller.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fortune-teller</a> &gt; <a href="index.source.html" class="el_package">se.nackademin</a> &gt; <span class="el_source">FortuneTeller.java</span></div><h1>FortuneTeller.java</h1><pre class="source lang-java linenums">package se.nackademin;
+
+public class FortuneTeller {
+    MagicNumbers magicNumbers;
+    Translator translator;
+
+    /*
+     * Returns a fortune based on name, income, location, age and height
+     *
+     * Calculates the magical numbers A-E, and then feeds these numbers to the Translator. The translator class returns
+     * individual words which are fed into the magical template. The result of this operation is a scientifically
+     * proven fortune.
+     *
+     * @return A scientifically proven fortune
+     *
+     */
+    public String calculate() {
+<span class="fc" id="L18">        String adjectiveA = translator.getAdjective(magicNumbers.calculateA());</span>
+<span class="fc" id="L19">        String verbB = translator.getVerb(magicNumbers.calculateB());</span>
+<span class="fc" id="L20">        String nounC = translator.getNoun(magicNumbers.calculateC());</span>
+<span class="fc" id="L21">        String verbD = translator.getVerb(magicNumbers.calculateD());</span>
+<span class="fc" id="L22">        String adjectiveE = translator.getAdjective(magicNumbers.calculateE());</span>
+
+<span class="fc" id="L24">        String template = &quot;Din framtid är %s. &quot; +</span>
+                &quot;Du borde sluta %s. &quot; +
+                &quot;Vi ser att du snart kommer att skaffa %s. &quot; +
+                &quot;Snart kommer du vilja %s, &quot; +
+                &quot;men då är det viktigt att du är %s.&quot;;
+<span class="fc" id="L29">        return String.format(template, adjectiveA, verbB, nounC, verbD, adjectiveE);</span>
+    }
+
+
+<span class="fc" id="L33">    FortuneTeller(MagicNumbers magicNumbers, Translator translator) {</span>
+<span class="fc" id="L34">        this.magicNumbers = magicNumbers;</span>
+<span class="fc" id="L35">        this.translator = translator;</span>
+<span class="fc" id="L36">    }</span>
+
+    public boolean setName(String name) {
+
+<span class="fc" id="L40">        magicNumbers.setName(name);</span>
+<span class="fc bfc" id="L41" title="All 4 branches covered.">        return name != null &amp;&amp; !&quot;&quot;.equals(name);</span>
+    }
+
+    private Integer convertToInteger(String input) {
+<span class="fc" id="L45">        Integer output = null;</span>
+        try {
+<span class="fc" id="L47">            output = Integer.valueOf(input);</span>
+<span class="fc" id="L48">        } catch (NumberFormatException numberFormatException) {</span>
+            //if an exception is caught we'll return null
+<span class="fc" id="L50">        }</span>
+<span class="fc" id="L51">        return output;</span>
+    }
+
+    public boolean setIncome(String income) {
+<span class="fc" id="L55">        Integer incomeValue = convertToInteger(income);</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        if (incomeValue == null) {</span>
+<span class="fc" id="L57">            return false;</span>
+        } else {
+<span class="fc" id="L59">            magicNumbers.setIncome(incomeValue);</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">            return incomeValue &lt;= 10_000_000;</span>
+        }
+    }
+
+    public boolean setLocation(String location) {
+<span class="fc" id="L65">        magicNumbers.setLocation(location);</span>
+<span class="fc bfc" id="L66" title="All 4 branches covered.">        return location != null &amp;&amp; !&quot;&quot;.equals(location);</span>
+    }
+
+    public boolean setAge(String age) {
+<span class="fc" id="L70">        Integer ageValue = convertToInteger(age);</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        if (ageValue == null) {</span>
+<span class="fc" id="L72">            return false;</span>
+        } else {
+<span class="fc" id="L74">            magicNumbers.setAge(ageValue);</span>
+<span class="fc" id="L75">            return true;</span>
+        }
+    }
+
+    public boolean setHeight(String height) {
+<span class="fc" id="L80">        Integer heightValue = convertToInteger(height);</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        if (heightValue == null) {</span>
+<span class="fc" id="L82">            return false;</span>
+        } else {
+<span class="fc" id="L84">            magicNumbers.setHeight(heightValue);</span>
+<span class="fc" id="L85">            return true;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
