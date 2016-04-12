@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="se.nackademin.MagicNumberTest" time="0.156" tests="13" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="se.nackademin.MagicNumberTest" time="0.246" tests="18" errors="0" skipped="0" failures="2">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/i386"/>
@@ -58,17 +58,30 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testCDependsOnName" classname="se.nackademin.MagicNumberTest" time="0.001"/>
-  <testcase name="testBDependsOnLocation" classname="se.nackademin.MagicNumberTest" time="0.002"/>
+  <testcase name="VerifyCalculateCImplementation" classname="se.nackademin.MagicNumberTest" time="0.009"/>
+  <testcase name="testCDependsOnName" classname="se.nackademin.MagicNumberTest" time="0"/>
+  <testcase name="testBDependsOnLocation" classname="se.nackademin.MagicNumberTest" time="0"/>
   <testcase name="testCDependsOnHeight" classname="se.nackademin.MagicNumberTest" time="0"/>
   <testcase name="testBDependsOnIncome" classname="se.nackademin.MagicNumberTest" time="0"/>
   <testcase name="testADependsOnName" classname="se.nackademin.MagicNumberTest" time="0"/>
+  <testcase name="VerifyCalculateAImplementation" classname="se.nackademin.MagicNumberTest" time="0.018">
+    <failure message="calculateA with input name &apos;a aa aa aa aa aa aa aa a&apos; and age &apos;1&apos; should return between 0 and 9, but returned &apos;10&apos;" type="java.lang.AssertionError">java.lang.AssertionError: calculateA with input name 'a aa aa aa aa aa aa aa a' and age '1' should return between 0 and 9, but returned '10'
+	at se.nackademin.MagicNumberTest.VerifyCalculateAImplementation(MagicNumberTest.java:134)
+</failure>
+  </testcase>
+  <testcase name="VerifyCalculateDImplementation" classname="se.nackademin.MagicNumberTest" time="0.006"/>
   <testcase name="testCDependsOnAge" classname="se.nackademin.MagicNumberTest" time="0"/>
   <testcase name="testA" classname="se.nackademin.MagicNumberTest" time="0"/>
   <testcase name="testB" classname="se.nackademin.MagicNumberTest" time="0.001"/>
   <testcase name="testC" classname="se.nackademin.MagicNumberTest" time="0"/>
   <testcase name="testD" classname="se.nackademin.MagicNumberTest" time="0"/>
-  <testcase name="testE" classname="se.nackademin.MagicNumberTest" time="0.003"/>
-  <testcase name="testADependsOnAge" classname="se.nackademin.MagicNumberTest" time="0"/>
+  <testcase name="testE" classname="se.nackademin.MagicNumberTest" time="0"/>
+  <testcase name="testADependsOnAge" classname="se.nackademin.MagicNumberTest" time="0.001"/>
   <testcase name="testDWithAGreaterThan5" classname="se.nackademin.MagicNumberTest" time="0"/>
+  <testcase name="VerifyCalculateBImplementation" classname="se.nackademin.MagicNumberTest" time="0.001"/>
+  <testcase name="VerifyCalculateEImplementation" classname="se.nackademin.MagicNumberTest" time="0">
+    <failure message="calculateE with An EF of 9.9 (using age &apos;11&apos; and income &apos;3&apos;,height &apos;1&apos;) should return between 0 and 9, but returned &apos;10&apos;" type="java.lang.AssertionError">java.lang.AssertionError: calculateE with An EF of 9.9 (using age '11' and income '3',height '1') should return between 0 and 9, but returned '10'
+	at se.nackademin.MagicNumberTest.VerifyCalculateEImplementation(MagicNumberTest.java:231)
+</failure>
+  </testcase>
 </testsuite>

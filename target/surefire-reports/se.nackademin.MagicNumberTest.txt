@@ -1,4 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: se.nackademin.MagicNumberTest
 -------------------------------------------------------------------------------
-Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.156 sec - in se.nackademin.MagicNumberTest
+Tests run: 18, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.246 sec <<< FAILURE! - in se.nackademin.MagicNumberTest
+VerifyCalculateAImplementation(se.nackademin.MagicNumberTest)  Time elapsed: 0.018 sec  <<< FAILURE!
+java.lang.AssertionError: calculateA with input name 'a aa aa aa aa aa aa aa a' and age '1' should return between 0 and 9, but returned '10'
+	at se.nackademin.MagicNumberTest.VerifyCalculateAImplementation(MagicNumberTest.java:134)
+
+VerifyCalculateEImplementation(se.nackademin.MagicNumberTest)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.AssertionError: calculateE with An EF of 9.9 (using age '11' and income '3',height '1') should return between 0 and 9, but returned '10'
+	at se.nackademin.MagicNumberTest.VerifyCalculateEImplementation(MagicNumberTest.java:231)
+

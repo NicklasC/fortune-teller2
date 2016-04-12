@@ -5,9 +5,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 public class MagicNumberTest {
     MagicNumbers magicNumbers;
+    boolean res;
 
     @Before
     public void setUp() {
@@ -105,4 +107,128 @@ public class MagicNumberTest {
         int second = magicNumbers.calculateC();
         assertNotEquals("C should provide different values for different names", first, second);
     }
+    @Test
+    public void VerifyCalculateAImplementation(){
+        
+        String location;
+        String name="";
+        
+        
+        magicNumbers.setAge(1);
+        
+        for(int counter = 0;counter <=10;counter++){
+            name="";
+            for (int i = 0; i <= counter; i++){
+               name = name + "a a";
+            }
+
+            magicNumbers.setName(name);
+            int calcA=magicNumbers.calculateA();
+
+            if(calcA >=0 && calcA <=9){
+                res=true;
+            }
+            else{
+                res=false;
+            }
+            assertTrue("calculateA with input name '" + name +"' and age '1' should return between 0 and 9, but returned '"+calcA+"'", res);
+        }
+    
+    }
+    
+    @Test
+    public void VerifyCalculateBImplementation(){
+        
+        magicNumbers.setLocation("here");
+        for(int counter=0;counter<=30;counter++){
+            magicNumbers.setIncome(counter);
+        
+            int calcB=magicNumbers.calculateB();
+            if(calcB >=0 && calcB <=9){
+                res=true;
+            }
+            else{
+                res=false;
+            }
+            assertTrue("calculateB with location 'here' and income '"+ counter +"' should return between 0 and 9, but returned '"+calcB+"'", res);
+        }
+    }
+    
+    @Test
+    public void VerifyCalculateCImplementation(){
+        
+        for(int counter=0;counter<=50;counter++){
+            magicNumbers.setHeight(counter);
+        
+            int calcC=magicNumbers.calculateC();
+            if(calcC >=0 && calcC <=9){
+                res=true;
+            }
+            else{
+                res=false;
+            }
+            assertTrue("calculateC with height '"+ counter +"' should return between 0 and 9, but returned '"+calcC+"'", res);
+        }
+    }
+    @Test
+    public void VerifyCalculateDImplementation(){
+        for(int counter=0;counter<=50;counter++){
+            magicNumbers.setIncome(counter);
+        
+            int calcD=magicNumbers.calculateD();
+            if(calcD >=0 && calcD <=9){
+                res=true;
+            }
+            else{
+                res=false;
+            }
+            assertTrue("calculateD with income '"+ counter +"' should return between 0 and 9, but returned '"+calcD+"'", res);
+        }
+        
+    }
+        
+    @Test
+    public void VerifyCalculateEImplementation(){
+        magicNumbers.setAge(1);
+        magicNumbers.setHeight(1);
+        magicNumbers.setIncome(11);
+        
+        int calcE=magicNumbers.calculateE();
+        
+        // Testing at EF 11
+        if(calcE >=0 && calcE <=9){
+            res=true;
+        }
+        else{
+            res=false;
+        }
+        assertTrue("calculateE with initial EF'11' should return between 0 and 9, but returned '"+calcE+"'", res);
+        
+        // Testing at EF 10
+        magicNumbers.setIncome(10);        
+        calcE=magicNumbers.calculateE();
+        
+        if(calcE >=0 && calcE <=9){
+            res=true;
+        }
+        else{
+            res=false;
+        }
+        assertTrue("calculateE with initial EF'10' should return between 0 and 9, but returned '"+calcE+"'", res);
+        
+        // Testing at EF 9.9
+        magicNumbers.setIncome(3);        
+        magicNumbers.setAge(11);
+            
+            calcE=magicNumbers.calculateE();
+
+            if(calcE >=0 && calcE <=9){
+                res=true;
+            }
+            else{
+                res=false;
+            }
+            assertTrue("calculateE with An EF of 9.9 (using age '11' and income '3',height '1') should return between 0 and 9, but returned '"+calcE+"'", res);
+        }
+    
 }
